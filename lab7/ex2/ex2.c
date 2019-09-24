@@ -7,8 +7,24 @@
 
 int main(void)
 {
-	int large, small, items, numLarge, numSmall;
+	//setup variables
+	int large, small, items, numLarge, numSmall, numScrap;
 
+	//get user input
+	printf("Enter capacity of large container: ");
+	scanf("%d", &large);
+	printf("Enter capacity of small container: ");
+	scanf("%d", &small);
+	printf("Enter number of items: ");
+	scanf("%d", &items);
+
+	//calculate num
+	numLarge = items/large;
+	numSmall = (items-numLarge*large)/small;
+	numScrap = items-large*numLarge-small*numSmall;
+
+	//print results
+	printf("Allocated:\n - Large: %d\n - Small: %d\n - Scrap: %d\n", numLarge, numSmall, numScrap);
 
 
 

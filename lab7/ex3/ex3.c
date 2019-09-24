@@ -8,14 +8,12 @@
 
 int main(void)
 {
+    //get user input
+    int n;
+    printf("Which fibonacci number? ");
+    scanf("%d", &n);
 
-
-
-
-
-
-
-
-
+    //calculate and print result
+    printf("Fibonacci number %d is: %.0f\n", n, (pow(1+sqrt(5),n)-pow(1-sqrt(5),n))/(pow(2,n)*sqrt(5)));
 	return 0;
 }
