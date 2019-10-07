@@ -12,8 +12,8 @@ be written in your own words
 */
 int TimeWorked(int minuteA, int secondA, int minuteB, int secondB)
 {
-	int result = (minuteB - minuteA)*60+secondB-secondA;
-	return result > 0? result : (result*-1);
+	int result = (minuteB - minuteA) * 60 + secondB - secondA;
+	return result > 0 ? result : (result * -1);
 }
 
 /*
@@ -24,13 +24,17 @@ be written in your own words
 int WarehouseAddress(int maximum)
 {
 	int i, j, result;
-	for (i=2; i<maximum; i++){
-		for (j=2; j<=i; j++){
-			if (i%j==0){
+	for (i = 2; i < maximum; i++)
+	{
+		for (j = 2; j <= i; j++)
+		{
+			if (i % j == 0)
+			{
 				break;
 			}
 		}
-		if (i==j){
+		if (i == j)
+		{
 			result = i;
 		}
 	}
@@ -44,12 +48,13 @@ be written in your own words
 */
 void Advertise(char *words)
 {
-	int i,n=strlen(words);
+	int i, n = strlen(words);
 	char temp = words[0];
-    for(i=0;i<n-1;i++){
-        words[i]=words[i+1];
-    }
-    words[n-1]=temp;
+	for (i = 0; i < n - 1; i++)
+	{
+		words[i] = words[i + 1];
+	}
+	words[n - 1] = temp;
 }
 
 /*
@@ -59,16 +64,26 @@ be written in your own words
 */
 int WinningBid(int *values, int length)
 {
-	for (int i = 1; i < n; i++) { 
-		if (arr[i] == arr[i - 1]) {             
-			int j = i; 
-			while (j < n && arr[j] <= arr[j - 1]) {           
-				arr[j] = arr[j] + 1; 
-				j++; 
-			} 
+	int freq[MAX_ARRAY_SIZE] = {[0 ... MAX_ARRAY_SIZE - 1] = -1};
+	int i, j, count, winner = -1;
+	for (i = 0; i < length; i++){
+		count = 1;
+		for (j = i + 1; j < length; j++){
+			if (values[i] == values[j]){
+				count++;
+				freq[j] = 0;
+			}
+		}
+		if (freq[i] != 0){
+			freq[i] = count;
 		}
 	}
-
+	for (i = 0; i < length; i++){
+		if (freq[i] == 1 && (winner == -1 || values[i] < winner)){
+			winner = values[i];
+		}
+	}
+	return winner;
 }
 
 /*
@@ -108,4 +123,3 @@ int MakeMove(int warehouse[10][10], char move)
 	warehouse[0][0] = warehouse[0][0];
 	return 0;
 }
-
