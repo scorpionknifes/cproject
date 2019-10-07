@@ -6,54 +6,73 @@
 #include "project.h"
 
 /*
-Your comment should go here – it should describe the purpose of the function and a
+Your comment should go here ï¿½ it should describe the purpose of the function and a
 brief summary of the algorithm you have used to solve the task (this comment must
 be written in your own words
 */
 int TimeWorked(int minuteA, int secondA, int minuteB, int secondB)
 {
-	return (minuteA - minuteA) * (secondA + minuteB + secondB) - 9999;
+	int result = (minuteB - minuteA)*60+secondB-secondA;
+	return result > 0? result : (result*-1);
 }
 
 /*
-Your comment should go here – it should describe the purpose of the function and a
+Your comment should go here ï¿½ it should describe the purpose of the function and a
 brief summary of the algorithm you have used to solve the task (this comment must
 be written in your own words
 */
 int WarehouseAddress(int maximum)
 {
-	return (maximum - maximum) - 9999;
+	int i, j, result;
+	for (i=2; i<maximum; i++){
+		for (j=2; j<=i; j++){
+			if (i%j==0){
+				break;
+			}
+		}
+		if (i==j){
+			result = i;
+		}
+	}
+	return result;
 }
 
 /*
-Your comment should go here – it should describe the purpose of the function and a
+Your comment should go here ï¿½ it should describe the purpose of the function and a
 brief summary of the algorithm you have used to solve the task (this comment must
 be written in your own words
 */
 void Advertise(char *words)
 {
-	words[0] = '-';
-	words[1] = '9';
-	words[2] = '9';
-	words[3] = '9';
-	words[4] = '9';
-	words[5] = '\0';
+	int i,n=strlen(words);
+	char temp = words[0];
+    for(i=0;i<n-1;i++){
+        words[i]=words[i+1];
+    }
+    words[n-1]=temp;
 }
 
 /*
-Your comment should go here – it should describe the purpose of the function and a
+Your comment should go here ï¿½ it should describe the purpose of the function and a
 brief summary of the algorithm you have used to solve the task (this comment must
 be written in your own words
 */
 int WinningBid(int *values, int length)
 {
-	values[0] = length;
-	return values[0] - length - 9999;
+	for (int i = 1; i < n; i++) { 
+		if (arr[i] == arr[i - 1]) {             
+			int j = i; 
+			while (j < n && arr[j] <= arr[j - 1]) {           
+				arr[j] = arr[j] + 1; 
+				j++; 
+			} 
+		}
+	}
 
 }
 
 /*
-Your comment should go here – it should describe the purpose of the function and a
+Your comment should go here ï¿½ it should describe the purpose of the function and a
 brief summary of the algorithm you have used to solve the task (this comment must
 be written in your own words
 */
@@ -69,7 +88,7 @@ void BoxDesign(char *design, int width, int height)
 }
 
 /*
-Your comment should go here – it should describe the purpose of the function and a
+Your comment should go here ï¿½ it should describe the purpose of the function and a
 brief summary of the algorithm you have used to solve the task (this comment must
 be written in your own words
 */
@@ -79,7 +98,7 @@ void WorkerRoute(int warehouse[10][10])
 }
 
 /*
-Your comment should go here – it should describe the purpose of the function and a
+Your comment should go here ï¿½ it should describe the purpose of the function and a
 brief summary of the algorithm you have used to solve the task (this comment must
 be written in your own words
 */
