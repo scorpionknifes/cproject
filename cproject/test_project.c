@@ -71,7 +71,7 @@ void MyTestFunction(int task)
 		printf("Box 1 = \n%s\n", box1);
 		printf("Box 2 = \n%s\n", box2);
 		printf("Box 3 = \n%s\n", box3);
-		printf("Checking string lengths = %d %d %d\n", strlen(box1), strlen(box2), strlen(box3));
+		printf("Checking string lengths = %lu %lu %lu\n", strlen(box1), strlen(box2), strlen(box3));
 	}
 
 	// An example of code that you could use to test Task Six.
