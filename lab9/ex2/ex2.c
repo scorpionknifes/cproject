@@ -3,6 +3,7 @@
 */
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 
 /* The dimensions of the puzzle */
 #define NUM_ROWS 4
@@ -61,8 +62,10 @@ void MakeMove(int board[NUM_ROWS][NUM_COLS], int tile)
 	int srow, scol, mrow, mcol;
 	FindTile(board, -1, &srow, &scol);
 	FindTile(board, tile, &mrow, &mcol);
-	if (srow == mrow){}
-	
+	if ((srow == mrow)&&(abs(scol-mcol)==1) ^ (scol == mcol)&&(abs(srow-mrow)==1)){
+		board[mrow][mcol]=-1;
+		board[srow][scol]=tile;
+	}
 }
 
 
