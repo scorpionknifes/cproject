@@ -107,20 +107,23 @@ void BoxDesign(char *design, int width, int height)
 	for (; i <= temp+width; i++){
 		design[i] = '*';
 	}
-	if (width%2==1 && height%2==1){
-		design[(width*height)/2+ height/2] = 'X';
-	}else if (height%2==1){
-		design[(width*height)/2+ height/2-1] = 'X';
-		design[(width*height)/2+ height/2] = 'X';
-	}else if (width%2==1){
-		design[(width*height)/2+ height/2] = 'X';
-		design[(width*height)/2+ height/2-height] = 'X';
-	}else{
-		design[(width*height)/2+ height/2 +width/2] = 'X';
-		design[(width*height)/2+ height/2+width/2-1] = 'X';
-		design[(width*height)/2+ height/2-width/2-1] = 'X';
-		design[(width*height)/2+ height/2-width/2-2] = 'X';
-	}
+  if (width >2 && height >2){
+    if (width%2==1 && height%2==1){
+      design[(width*height)/2+ height/2] = 'X';
+    }else if (height%2==1){
+      design[(width*height)/2+ height/2-1] = 'X';
+      design[(width*height)/2+ height/2] = 'X';
+    }else if (width%2==1){
+      design[(width*height)/2+ height/2-width/2-2] = 'X';
+      design[(width*height)/2+ height/2+width/2] = 'X';
+      
+    }else{
+      design[(width*height)/2+ height/2 +width/2] = 'X';
+      design[(width*height)/2+ height/2+width/2-1] = 'X';
+      design[(width*height)/2+ height/2-width/2-1] = 'X';
+      design[(width*height)/2+ height/2-width/2-2] = 'X';
+    }
+  }
 	design[i++] = '\n';
 }
 
