@@ -90,23 +90,32 @@ be written in your own words
 void BoxDesign(char *design, int width, int height)
 {
 	int j,i=0, temp;
-	for (i = 0; i < width; i++){
-		design[i] = '*';
-	}
-	for (j =0;  j < height-2; j++){
-		design[i++] = '\n';
-		design[i++] = '*';
-		temp = i;
-		for (; i< temp+width-2; i++){
-			design[i] = ' ';
-		}
-		design[i++] = '*';
-	}
+  if (height > 0){
+    for (i = 0; i < width; i++){
+      design[i] = '*';
+    }
+  }
+  if (height > 1){
+    for (j =0;  j < height-2; j++){
+      design[i++] = '\n';
+      design[i++] = '*';
+      temp = i;
+      for (; i< temp+width-2; i++){
+        design[i] = ' ';
+      }
+      if (width > 1){
+      design[i++] = '*';
+      }
+    }
+  }
 	temp = i;
 	design[i++] = '\n';
-	for (; i <= temp+width; i++){
-		design[i] = '*';
-	}
+  if (height > 1){
+    for (; i <= temp+width; i++){
+      design[i] = '*';
+    }
+  }
+	
   if (width >2 && height >2){
     if (width%2==1 && height%2==1){
       design[(width*height)/2+ height/2] = 'X';
