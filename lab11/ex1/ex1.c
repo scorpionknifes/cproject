@@ -40,16 +40,12 @@ int numWords;
 int OneLetterDifference(char *word1, char *word2)
 {
 	// You only need to complete this function definition
-
-
-
-
-
-
-
-
-
-	return 0;
+	int sum=1;
+	int l=strlen(word1);
+	for (int i=0; i<l;i++){
+		sum+=(word1[i]==word2[i]);
+	}
+	return (sum==l);
 }
 
 
