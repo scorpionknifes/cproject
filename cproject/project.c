@@ -70,7 +70,7 @@ int TimeWorked(int minuteA, int secondA, int minuteB, int secondB)
 */
 int WarehouseAddress(int maximum)
 {
-	int i, j, result;
+	int i, j, result = -1;
 	// Nested loop to find all prime number less than maximum.
 	for (i = 2; i < maximum; i++)
 	{
@@ -175,7 +175,7 @@ int WinningBid(int *values, int length)
 	}
 
 	// If the no lowest unique bid is found return -1 or else return lowest unique bid.
-	return value==0?-1:value;
+	return value == 0 ? -1 : value;
 }
 
 /* Box Designer
@@ -323,12 +323,12 @@ void BoxDesign(char *design, int width, int height)
 
 */
 void WorkerRoute(int warehouse[10][10])
-{	
+{
 	// ox, oy is worker original position
 	// x1, y1 is position of worker
 	// x2, y2 is position of box
-	int i, j, ox, oy, x1, y1, x2, y2;
-	
+	int i, j, ox = 0, oy = 0, x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+
 	// Nested loop to find the location of worker and box
 	for (i = 0; i < 10; i++)
 	{
@@ -398,7 +398,7 @@ void WorkerRoute(int warehouse[10][10])
 */
 int MakeMove(int warehouse[10][10], char move)
 {
-	int i, j, wx, wy, mx = 0, my = 0, finish = 0, t = 0;
+	int i, j, wx = 0, wy = 0, mx = 0, my = 0, finish = 0, t = 0;
 	// Nested loop to find position of Worker or Worker_on_target
 	// also find the number of Boxes defined as t
 	for (i = 0; i < 10; i++)
