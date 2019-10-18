@@ -1,35 +1,85 @@
 /* ENGGEN131 Project - C Project - 2019 */
 /* The Warehouse */
 
-/* << Include your information here - name, user name, ID number >> */
+/* Copyright (c) 2019 ZHENK
+   Written by Cheng-Zhen Yang */
+/*
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+   - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
 
 #include "project.h"
 
-/*
-Your comment should go here � it should describe the purpose of the function and a
-brief summary of the algorithm you have used to solve the task (this comment must
-be written in your own words
+/* TimeWorked - Clocking In, Clocking Out
+	Calculates the length of the worker's shift by inputing two times.
+	Each time (A & B) requires an input for minute and second.
+
+    Args:
+        minuteA: The minutes for time A.
+        secondA: The seconds for time A.
+		minuteB: The minutes for time B.
+        secondB: The seconds for time B.
+
+    Returns:
+		int - length of a worker's shift in seconds.
+        
+	Examples:
+		TimeWorked(1, 0, 2, 0) = 60.
+		TimeWorked(55, 11, 42, 12) = 799.
+		TimeWorked(33, 33, 33, 33) = 0.
 */
 int TimeWorked(int minuteA, int secondA, int minuteB, int secondB)
 {
+	// Calculate the time difference between time A & B in seconds.
 	int result = (minuteB - minuteA) * 60 + secondB - secondA;
+
+	// If results is negative convert to positive by multipling -1.
 	return result > 0 ? result : (result * -1);
 }
 
-/*
-Your comment should go here � it should describe the purpose of the function and a
-brief summary of the algorithm you have used to solve the task (this comment must
-be written in your own words
+/* WarehouseAddress - Lucky Address
+	Find the largest prime number less than the upper bound.
+
+    Args:
+        maximum: The upper bound.
+
+    Returns:
+		int - The largest prime number less than upper bound.
+        
+	Examples:
+		WarehouseAddress(1000) = 997.
+		WarehouseAddress(50) = 47.
+		WarehouseAddress(104393) = 104383
 */
 int WarehouseAddress(int maximum)
 {
 	int i, j, result;
+	// Nested loop to find all prime number less than maximum.
 	for (i = 2; i < maximum; i++){
 		for (j = 2; j <= i; j++){
 			if (i % j == 0){
+				// Break loop if number is not prime
 				break;
 			}
 		}
+		// If number is a prime number set as result.
 		if (i == j){
 			result = i;
 		}
@@ -37,10 +87,14 @@ int WarehouseAddress(int maximum)
 	return result;
 }
 
-/*
-Your comment should go here � it should describe the purpose of the function and a
-brief summary of the algorithm you have used to solve the task (this comment must
-be written in your own words
+/* Advertise - Scrolling Ads
+	Find the largest prime number less than the upper bound.
+
+    Args:
+        args:
+
+	Examples:
+
 */
 void Advertise(char *words)
 {
