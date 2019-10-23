@@ -255,9 +255,9 @@ void BoxDesign(char *design, int width, int height)
 	}
 	// Add newline and Draw bottom line of the box using a loop.
 	temp = i;
-	design[i++] = '\n';
 	if (height > 1)
 	{
+		design[i++] = '\n';
 		for (; i <= temp + width; i++)
 		{
 			design[i] = '*';
